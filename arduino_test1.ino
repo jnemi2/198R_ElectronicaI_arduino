@@ -1,10 +1,12 @@
 #include <LiquidCrystal_I2C.h>
 #define TRIG 8
 #define ECHO 9
+#define N_SAMPLES 5
 
 LiquidCrystal_I2C lcd(0x27,16,2);
 
 float getDistance();
+float measure();
 
 void setup() {
   // put your setup code here, to run once:
@@ -18,10 +20,22 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  float distance = getDistance();
+  float distance = measure();
+  lcd.clear();
   Serial.print(distance);
+  Serial.print("\n");
   lcd.print(distance);
-  delay(90);
+  //delay(100);
+}
+
+float measure(){
+  float distance = 0;
+  for (int i = 0; i < N_SAMPLES; i++){
+    distance += getDistance();
+    delay(100);
+  }
+  distance = distance / N_SAMPLES;
+  return distance;
 }
 
 float getDistance(){
