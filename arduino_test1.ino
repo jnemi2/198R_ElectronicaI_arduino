@@ -43,8 +43,10 @@ void loop() {
   Serial.print(-degree);
   Serial.print(delimeter);
   Serial.println((int)distance);
-  //Serial.print();
+  lcd.print("Ang. ");
   lcd.print(degree);
+  lcd.cursor(0,1);
+  lcd.print("Dist ");
   lcd.print(distance);
   
   //delay(100);
