@@ -63,18 +63,16 @@ float measure(){
 }
 
 float getDistance(){
-  float echoTime;           //variable to store the time it takes for a ping to bounce off an object
-  float calculatedDistance = -1; //variable to store the distance calculated from the echo time
+  float echoTime;
+  float calculatedDistance = -1;
 
-  //send out an ultrasonic pulse that's 10ms long
   digitalWrite(TRIG, HIGH);
   delayMicroseconds(10);
   digitalWrite(TRIG, LOW);
 
-  echoTime = pulseIn(ECHO, HIGH); //use the pulsein command to see how long it takes for the
-                                     //pulse to bounce back to the sensor
+  echoTime = pulseIn(ECHO, HIGH);
 
-  calculatedDistance = echoTime / 58.0; //calculate the distance of the object that reflected the pulse (half the bounce time multiplied by the speed of sound)
+  calculatedDistance = echoTime / 58.0;
 
-  return calculatedDistance; //send back the distance that was calculated
+  return calculatedDistance;
 }
