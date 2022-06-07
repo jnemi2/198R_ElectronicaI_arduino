@@ -34,10 +34,8 @@ void loop() {
   // put your main code here, to run repeatedly:
   degree = degree + MULTIPLIER*direction;
   servo.write(degree);
-  if (degree >= MAX_DEGREE)
-      direction = -1;
-  else if (degree <= -MAX_DEGREE)
-      direction = 1;
+  if (degree >= MAX_DEGREE || degree <= 0)
+      direction = -direction;
   float distance = measure();
   lcd.clear();
   Serial.print(-degree);
