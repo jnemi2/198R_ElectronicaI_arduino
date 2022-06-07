@@ -43,7 +43,7 @@ void loop() {
   Serial.println((int)distance);
   lcd.print("Ang. ");
   lcd.print(degree);
-  lcd.cursor(0,1);
+  lcd.setCursor(0,1);
   lcd.print("Dist ");
   lcd.print(distance);
   
