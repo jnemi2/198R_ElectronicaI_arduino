@@ -38,7 +38,7 @@ void loop() {
       direction = -direction;
   float distance = measure();
   lcd.clear();
-  Serial.print(-degree);
+  Serial.print(degree);
   Serial.print(delimeter);
   Serial.println((int)distance);
   lcd.print("Ang. ");
