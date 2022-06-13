@@ -32,7 +32,7 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  degree = degree + MULTIPLIER*direction;
+  degree = max(0, min(180, degree + MULTIPLIER*direction));
   servo.write(degree);
   if (degree >= MAX_DEGREE || degree <= 0)
       direction = -direction;
