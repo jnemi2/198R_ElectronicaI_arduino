@@ -42,7 +42,7 @@ void loop() {
   Serial.print(delimeter);
   Serial.println((int)distance);
   lcd.print("Ang. ");
-  lcd.print(degree);
+  lcd.print(-(degree - 90));
   lcd.setCursor(0,1);
   lcd.print("Dist ");
   lcd.print(distance);
@@ -54,7 +54,7 @@ float measure(){
   float distance = 0;
   for (int i = 0; i < N_SAMPLES; i++){
     distance += getDistance();
-    delay(100);
+    delay(50);
   }
   distance = distance / N_SAMPLES;
   return distance;
